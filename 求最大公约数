@@ -1,0 +1,12 @@
+ * 求出a、b的最大公约数。
+ * @param a int整型 
+ * @param b int整型 
+ * @return int整型
+ */
+int gcd(int a, int b ) {
+    if(b==0) return a;
+    else{
+        return gcd(b,a%b);
+    }
+   
+}
