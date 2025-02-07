@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include<stdbool.h>
+#include<math.h>
+bool is_prime(int num){  //判断是否是素数
+    if(num==1) return false; 
+    for(int i=2;i<=sqrt(num);i++){  //素数只需要检查到根号下就行
+        if(num%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n=0;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        int in=0; //用来存放接下来输入的数字
+        scanf("%d",&in);
+        if(is_prime(in)){
+            printf("true\n");
+        }else{
+            printf("false\n");
+        }
+    }
+    return 0;
+}
