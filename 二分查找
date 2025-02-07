@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int left=0;
+        int right=nums.size()-1; //左闭右闭
+        while(left<=right){
+            int mid=(left+right)/2; //确定中间位置
+            if(nums[mid]<target){  //目标在右侧区间并且一定不是现在的mid指向的位置
+                left=mid+1;
+            }else if(nums[mid]>target){
+                right=mid-1;
+            }else{
+                return mid;
+            }
+        }
+        return -1;
+    }
+       
+
+    
+};
