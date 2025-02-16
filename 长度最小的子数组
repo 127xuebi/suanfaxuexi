@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int sum = 0;
+        int result = INT32_MAX; // 先用一个大数表示结果
+        int subLength = 0;      // 滑动窗口的长度
+        int start = 0;          // start表示区间的头部
+        for (int last = 0; last < nums.size(); last++) {
+            sum += nums[last]; // last表示区间的尾部
+            while (sum >=target) { // 当sum大于等于target的时候，移动start指针缩小区间，模拟滑动窗口
+                subLength=last-start+1;
+                result=min(result,subLength);
+                sum=sum-nums[start];
+                start++;
+            }
+        }
+       return result == INT32_MAX ? 0 : result;
+    }
+};
